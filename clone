@@ -1,5 +1,8 @@
-USER=geographerjay; PAGE=1
-curl "https://api.github.com/users/$USER/repos?page=$PAGE&per_page=100" |
+#copy .sh file to directory where you want clones to go on your local drive
+#set api.github.com/users/[the user you want to clone]
+#page is 1 because per page max is 100
+#for over 100 clones you need to change the page in teh script and re-run
+curl "https://api.github.com/users/cfpb/repos?page=1&per_page=100" |
   grep -e 'git_url*' |
   cut -d \" -f 4 |
   xargs -L1 git clone
